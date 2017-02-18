@@ -1,4 +1,7 @@
+import jodd.json.JsonSerializer;
+
 import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -10,7 +13,7 @@ public class People {
     public People() {
     }
 
-    public static void readAndSortFile() throws Exception {
+    public void readAndSortFile() throws Exception {
         //read each line into an object arraylist
         File f = new File("people.csv");
         Scanner fileScanner = new Scanner(f);
@@ -24,7 +27,7 @@ public class People {
         fileScanner.close();
     }
 
-    public static void loadMap() {
+    public void loadMap() {
         ArrayList<Person> peopleInCountryList;
 
         for(Person person : people){
@@ -34,13 +37,23 @@ public class People {
                 peopleInCountryList = new ArrayList<Person>();          // if the country list does not exist create a new list
                 peopleMap.put(person.country, peopleInCountryList);     //put the list in the map
             }
-            peopleInCountryList.add(person);//for every person put them on the list
-
-
-
-
-        }
+            peopleInCountryList.add(person);//for every person put them in the list
         }
     }
+
+    public void printMapToConsole(){
+        System.out.println(peopleMap);
+    }
+
+    public void writeMapToJson() throws Exception{
+        JSONObject jsonObj = new JSONObject();
+        File f = new File("People.json");
+        JsonSerializer serializer = new JsonSerializer();
+        String json = serializer.include("*").serialize(peopleMap);
+        FileWriter fw = new FileWriter(f);
+        fw.write(json);
+        fw.close();
+    }
+}
 
 

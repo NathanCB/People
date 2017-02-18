@@ -42,7 +42,7 @@ String ipAdd;
 
     @Override
     public String toString(){
-        return firstName + lastName + email + country;
+        return this.firstName + " " + this.lastName + " from" + " " + this.country;
     }
 
 

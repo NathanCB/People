@@ -1,17 +1,11 @@
 public class Main {
 
     public static void main(String[] args) throws Exception{
+        People peopleMatchingCountries = new People();
 
-        People.readAndSortFile();
-        People.loadPeople();
-
-
-
-
-
-
-
+        peopleMatchingCountries.readAndSortFile();
+        peopleMatchingCountries.loadMap();
+        peopleMatchingCountries.printMapToConsole();
+        peopleMatchingCountries.writeMapToJson();
     }
-
-
 }
