@@ -1,4 +1,4 @@
-public class Person {
+public class Person implements Comparable{
 Integer idNum;
 String firstName;
 String lastName;
@@ -12,8 +12,6 @@ String ipAdd;
         this.lastName = lastName;
         this.email = email;
         this.country = country;
-
-
     }
 
     public String getFirstName() {
@@ -44,6 +42,9 @@ String ipAdd;
     public String toString(){
         return this.firstName + " " + this.lastName + " from" + " " + this.country;
     }
-
-
+    @Override
+    public int compareTo(Object o) {
+        Person p = (Person) o;
+        return this.lastName.compareTo(p.lastName);
+    }
 }

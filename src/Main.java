@@ -5,6 +5,7 @@ public class Main {
 
         peopleMatchingCountries.readAndSortFile();
         peopleMatchingCountries.loadMap();
+        peopleMatchingCountries.sortByLastName();
         peopleMatchingCountries.printMapToConsole();
         peopleMatchingCountries.writeMapToJson();
     }

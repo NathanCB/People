@@ -2,9 +2,7 @@ import jodd.json.JsonSerializer;
 
 import java.io.File;
 import java.io.FileWriter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 
 public class People {
     static ArrayList<Person> people = new ArrayList<>();//an arraylist of person objects
@@ -21,7 +19,7 @@ public class People {
             String line = fileScanner.nextLine();
             String[] columns = line.split(",");
             Person p = new Person(columns[1], columns[2], columns[3], columns[4]);
-            People.people.add(p);
+            people.add(p);
             //System.out.println(p);
         }
         fileScanner.close();
@@ -38,6 +36,13 @@ public class People {
                 peopleMap.put(person.country, peopleInCountryList);     //put the list in the map
             }
             peopleInCountryList.add(person);//for every person put them in the list
+        }
+    }
+
+    public void sortByLastName() {
+
+        for (Map.Entry<String, ArrayList<Person>> entry : peopleMap.entrySet()) {
+             Collections.sort(entry.getValue());//must implement comparable in the Person class
         }
     }
 
