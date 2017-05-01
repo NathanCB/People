@@ -1,1 +1,2 @@
-# People. WIP
+# People: read file, sort and map to JSON
+

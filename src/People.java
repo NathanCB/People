@@ -11,7 +11,7 @@ public class People {
     public People() {
     }
 
-    public void readAndSortFile() throws Exception {
+    public void readFile() throws Exception {
         //read each line into an object arraylist
         File f = new File("people.csv");
         Scanner fileScanner = new Scanner(f);
@@ -60,5 +60,3 @@ public class People {
         fw.close();
     }
 }
-
-

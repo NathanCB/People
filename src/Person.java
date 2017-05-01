@@ -4,7 +4,6 @@ String firstName;
 String lastName;
 String email;
 String country;
-String ipAdd;
 
     public Person(String firstName, String lastName, String email, String country) {
 
